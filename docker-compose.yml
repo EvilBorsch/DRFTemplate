@@ -27,15 +27,17 @@ services:
             - python
     python:
         restart: always
-# указываем откуда собирать образ
+        env_file:
+            - main.env
+        # указываем откуда собирать образ
         build:
             context: .
             dockerfile: docker/python/Dockerfile
-# монтируем директорию проекта
+        # монтируем директорию проекта
         volumes:
             - ./app:/srv/www/app
         expose:
-          - 8000
+            - 8000
         ports:
             - 8000:8000
 # запускаем gunicorn
@@ -46,9 +48,6 @@ services:
         ports:
             - 5432:5432
         environment:
-            POSTGRES_USER: django_db
-            POSTGRES_PASSWORD: password
-            POSTGRES_DB: postgres
             PGDATA: /var/lib/postgresql/data
         volumes:
             - pgdata:/var/lib/postgresql/data
