@@ -8,7 +8,9 @@ run:
 	docker rm -vf $$(docker ps -a -q) || true
 	docker-compose up
 
+#run to do migrations
+migrate:
+	docker-compose run python sh -c "python manage.py makemigrations && python manage.py migrate"
+
 #run if app runns first time
-first-time:
-	cd ./app
-	python3 manage.py migrate
+first-time:migrate
