@@ -5,5 +5,9 @@ Django REST FRAMEWORK Template, PostgresSQL + Docker + makefile + gunicorn + NGI
 
 ```
 To run
-make build-and-run
+make run
+
+If app runnings first time
+
+make first-time
 ```
