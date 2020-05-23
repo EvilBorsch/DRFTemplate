@@ -10,4 +10,5 @@ run:
 
 #run if app runns first time
 first-time:
-	docker-compose run python manage.py migrate
+	cd ./app
+	python manage.py migrate
