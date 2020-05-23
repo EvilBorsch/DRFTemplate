@@ -10,4 +10,9 @@ make run
 If app runnings first time
 
 make first-time
+
+
+To apply migrations
+
+make migrate
 ```
