@@ -11,4 +11,4 @@ run:
 #run if app runns first time
 first-time:
 	cd ./app
-	python manage.py migrate
+	python3 manage.py migrate
